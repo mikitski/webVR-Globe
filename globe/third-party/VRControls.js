@@ -20,6 +20,9 @@ THREE.VRControls = function ( camera, speed, done ) {
 
 		//hold down keys to do rotations and stuff
 		function key(event, sign) {
+
+			console.log('key event: ', event.keyCode);
+
 			var control = self.manualControls[event.keyCode];
 
 			if (typeof control === 'undefined' || sign === 1 && control.active || sign === -1 && !control.active) {
@@ -161,6 +164,33 @@ THREE.VRControls = function ( camera, speed, done ) {
 
 			for (j in this.controllers) {
 				var controller = this.controllers[j];
+
+				//console.log('controller ex0', controller.axes[0]);
+				//console.log('controller ex1', controller.axes[1]);
+				//console.log('controller ex2', controller.axes[2]);
+				//console.log('controller ex3', controller.axes[3]);
+
+				if(controller.buttons[0].pressed){
+					console.log('controller btn0', controller.buttons[0].value);
+					console.log('controller btn1', controller.buttons[1].value);
+					console.log('controller btn2', controller.buttons[2].value);
+					console.log('controller btn3', controller.buttons[3].value);
+
+					console.log('controller btn4', controller.buttons[4].value);
+					console.log('controller btn5', controller.buttons[5].value);
+					console.log('controller btn6', controller.buttons[6].value);
+					console.log('controller btn7', controller.buttons[7].value);
+					console.log('controller btn8', controller.buttons[8].value);
+					console.log('controller btn9', controller.buttons[9].value);
+					console.log('controller btn10', controller.buttons[10].value);
+					console.log('controller btn11', controller.buttons[11].value);
+					console.log('controller btn12', controller.buttons[12].value);
+					console.log('controller btn13', controller.buttons[13].value);
+					console.log('controller btn14', controller.buttons[14].value);
+					console.log('controller btn15', controller.buttons[15].value);
+					console.log('controller btn16', controller.buttons[16].value);
+
+				}
 
 				this.manualMoveRate[1] = -1 * Math.round(controller.axes[0]);
 				this.manualMoveRate[0] = Math.round(controller.axes[1]);
